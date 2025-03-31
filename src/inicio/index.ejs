@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Busca Huellitas</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/output.css" />
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <!-- 🧭 Barra de navegación -->
+  <nav class="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-600">🐾 Busca Huellitas</h1>
+    <div class="flex space-x-4">
+      <% if (!usuario) { %>
+        <a href="/registro" class="text-blue-600 hover:underline">Registro</a>
+        <a href="/login" class="text-blue-600 hover:underline">Ingresa</a>
+      <% } else { %>
+        <span class="font-medium text-gray-700">Hola, <%= usuario %></span>
+      <% } %>
+
+      <% if (usuario) { %>
+        <a href="/perdido" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+          ¿Perdiste a tu mascota?
+        </a>
+      <% } %>
+    </div>
+  </nav>
+
+  <!-- 🖼️ Carrusel de mascotas -->
+  <section class="py-6 px-4">
+    <h2 class="text-2xl font-semibold text-center text-blue-700 mb-4">Mascotas Perdidas</h2>
+
+    <div class="flex gap-4 overflow-x-auto pb-2">
+      <% mascotas.forEach(mascota => { %>
+        <button onclick="mostrarMascota('<%= mascota.id_mascota %>')"
+                class="flex-shrink-0 w-40 h-40 rounded overflow-hidden shadow-md border border-gray-300 hover:shadow-lg transition">
+          <img src="/uploads/mascotas/<%= mascota.fotografia %>"
+               alt="Mascota <%= mascota.nombre %>"
+               class="w-full h-full object-cover" />
+        </button>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- 📦 Modal oculto (a preparar después) -->
+  <div id="modalMascota" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-xl shadow-xl w-full max-w-md relative">
+      <button onclick="cerrarModal()"
+              class="absolute top-2 right-3 text-gray-500 hover:text-red-500 text-xl">✖</button>
+      <div id="detalleMascota">
+        <!-- Aquí se insertará la información dinámica -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarMascota(id) {
+      // Aquí iría un fetch a /mascota/:id para mostrar detalles
+      // Por ahora solo se muestra el modal vacío
+      document.getElementById('modalMascota').classList.remove('hidden');
+    }
+
+    function cerrarModal() {
+      document.getElementById('modalMascota').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

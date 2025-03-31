@@ -1,0 +1,19 @@
+npm init -y
+npm install ejs
+npm install express
+npm install -D nodemon
+npm install tailwindcss @tailwindcss/cli
+npm install dotenv
+npm install -D concurrently
+npm install pg
+npm install multer
+npm install express-session
+
+inicializa el servidor
+npm start
+ya no se debe iniciar el este ya que el nodemon ya lo hace automatico
+npx @tailwindcss -i ./src/formulario_perdido/input.css -o ./src/formulario_perdido/output.css --watch
+
+inicializa servidor con docker
+docker-compose up --build
+docker-compose down -v
