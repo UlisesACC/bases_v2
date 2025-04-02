@@ -1,0 +1,12 @@
+@startuml
+actor "Ciudadano"
+actor "Veterinario"
+actor "Dueño de Mascota"
+actor "Rescatista"
+actor "Refugio de Mascotas"
+package "Buscador de Mascotas"{
+    Ciudadano -> (buscar mascota)
+    Ciudadano -> (adoptar mascota)
+    (adoptar mascota)
+}
+@enduml
