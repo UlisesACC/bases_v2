@@ -1,19 +1,35 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.0.17",
-    "dotenv": "^16.4.7",
+    "@tailwindcss/cli": "^4.1.4",
+    "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
     "multer": "^1.4.5-lts.2",
-    "pg": "^8.14.1",
-    "tailwindcss": "^4.0.17"
+    "pg": "^8.15.5",
+    "tailwindcss": "^4.1.4"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.10"
   },
   "scripts": {
-    "build:css": "tailwindcss -i ./src/formulario_perdido/input.css -o ./src/formulario_perdido/output.css --watch"
-  }
+    "build:css": "tailwindcss -i ./src/formulario_perdido/input.css -o ./src/formulario_perdido/output.css --watch",
+    "start": "node server.js"
+  },
+  "name": "bases_v2",
+  "version": "1.0.0",
+  "description": "Se nesecita docker ojo alli 👀\r Para iniciar el seridor de docker se nesecita poner en la terminal y tener abierto el docker\r ```bash\r docker-compose up --build\r ```\r Para bajar el servidor y eliminar el volumen de docker se nesecita\r ```bash\r docker-compose down -v\r ```\r ## Proyecto PEtFinder\r (Consultar pagina de sepomex)\r Perro encontrado:\r - Nombre\r - RUAC \r - Raza \r - Tam\r - Edad estimada: anio, y meses\r - Color principal\r - Patron de colores de pelo:\r - Estado de salud:\r     - destruido, deshidratado, heridas, sarna, garrapatas, falta de una pata\r - Estado fisico\r - Estado emocional\r - Ubicacion: lat, longitud, calle, colonia, codigo postal, Alcaldia",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UlisesACC/bases_v2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UlisesACC/bases_v2/issues"
+  },
+  "homepage": "https://github.com/UlisesACC/bases_v2#readme"
 }
